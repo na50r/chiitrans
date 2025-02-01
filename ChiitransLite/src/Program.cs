@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 using ChiitransLite.forms;
 using ChiitransLite.translation.edict;
 using ChiitransLite.misc;
