@@ -62,5 +62,9 @@ namespace ChiitransLite.forms {
             Process.Start("http://alexbft.github.io/chiitrans/");
         }
 
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

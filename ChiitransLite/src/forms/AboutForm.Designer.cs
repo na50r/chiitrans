@@ -48,7 +48,7 @@
             this.label1.Location = new System.Drawing.Point(117, 13);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 16);
+            this.label1.Size = new System.Drawing.Size(109, 20);
             this.label1.TabIndex = 1;
             this.label1.Text = "Chiitrans Lite";
             // 
@@ -57,7 +57,7 @@
             this.labelVersion.AutoSize = true;
             this.labelVersion.Location = new System.Drawing.Point(117, 29);
             this.labelVersion.Name = "labelVersion";
-            this.labelVersion.Size = new System.Drawing.Size(54, 16);
+            this.labelVersion.Size = new System.Drawing.Size(66, 20);
             this.labelVersion.TabIndex = 2;
             this.labelVersion.Text = "Version";
             // 
@@ -66,9 +66,10 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(117, 45);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(176, 16);
+            this.label2.Size = new System.Drawing.Size(227, 20);
             this.label2.TabIndex = 3;
             this.label2.Text = "Copyright 2013 - 2014 alexbft";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // linkLabel1
             // 
@@ -76,7 +77,7 @@
             this.linkLabel1.LinkArea = new System.Windows.Forms.LinkArea(6, 35);
             this.linkLabel1.Location = new System.Drawing.Point(13, 117);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(293, 20);
+            this.linkLabel1.Size = new System.Drawing.Size(366, 24);
             this.linkLabel1.TabIndex = 4;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Visit http://alexbft.github.io/chiitrans/ for updates.";

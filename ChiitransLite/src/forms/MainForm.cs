@@ -69,14 +69,15 @@ namespace ChiitransLite.forms {
                 form.showBrowseDialog();
             }
 
-            public void connectClick(int pid, string exeName) {
-                try {
-                    TextHook.instance.connect(pid, exeName);
-                    form.connectSuccess();
-                } catch (Exception ex) {
-                    form.connectError(ex.Message);
-                }
-            }
+            //public void connectClick(int pid, string exeName) {
+            //    try {
+            //        TextHook.instance.connect(pid, exeName);
+            //        form.connectSuccess();
+            //    }
+            //    catch (Exception ex) {
+            //        form.connectError(ex.Message);
+            //    }
+            //}
 
             public void setContextEnabled(int ctxId, bool isEnabled) {
                 var ctx = (MyContext)TextHook.instance.getContext(ctxId);

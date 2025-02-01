@@ -292,7 +292,6 @@
   <ItemGroup>
     <Content Include="ohayo.ico" />
     <None Include="src\ohayo_small.ico" />
-    <Content Include="src\todo.txt" />
     <Content Include="www\js\jquery-ui.js" />
     <Content Include="www\js\jquery.js" />
     <Content Include="www\js\options.js">
