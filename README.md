@@ -4,6 +4,90 @@ I forked this repo because I use Chiitrans myself and since the code was availab
 * Understand parsing algorithm
 * Understand code structure in general 
 
+## Parsing Analysis
+Based on how it works and rough analysis, i.e., not a close look at source code, we can assume parsing does the following:
+1. Accept text from clipboard as input
+2. Segment the text somehow / Find Morphemes
+3. Get the Lemma of the Morpehemes
+4. Perform a dictionary lookup of the Lemma on `JMdict.xml` and `JMnedict.xml`
+
+Step 4 we can confirm by looking at the output Chiirans gives. For example `男` by itself has 8 translation pop ups.
+If we do:
+```sh
+> grep -P -B3 -A50 '>男<' JMdict.xml
+```
+And look at the first `entry` element, we see:
+```
+<entry>
+<ent_seq>1419990</ent_seq>
+<k_ele>
+<keb>男</keb>
+<ke_pri>ichi1</ke_pri>
+<ke_pri>news1</ke_pri>
+<ke_pri>nf01</ke_pri>
+</k_ele>
+<r_ele>
+<reb>おとこ</reb>
+<re_pri>ichi1</re_pri>
+<re_pri>news1</re_pri>
+<re_pri>nf01</re_pri>
+</r_ele>
+<r_ele>
+<reb>おっこ</reb>
+<re_inf>&ok;</re_inf>
+</r_ele>
+<sense>
+<pos>&n;</pos>
+<pos>&n-pref;</pos>
+<xref>女・おんな・1</xref>
+<gloss>man</gloss>
+<gloss>male</gloss>
+</sense>
+<sense>
+<pos>&n;</pos>
+<gloss>fellow</gloss>
+<gloss>guy</gloss>
+<gloss>chap</gloss>
+<gloss>bloke</gloss>
+</sense>
+<sense>
+<pos>&n;</pos>
+<gloss>male lover</gloss>
+<gloss>boyfriend</gloss>
+<gloss>man</gloss>
+</sense>
+<sense>
+<pos>&n;</pos>
+<gloss>manliness</gloss>
+<gloss>manly honor</gloss>
+<gloss>manly honour</gloss>
+<gloss>manly reputation</gloss>
+</sense>
+</entry>
+```
+Which corresponds to every information visible in the first definition window displayed on Chiitrans.
+```
+# Definition Typed Out:
+Furigana: おとこ
+- man; male おとこ
+- fellow; guy; chap; bloke おとこ おっこ
+- male lover; boyfriend; man
+- manliness; manly; honor; manly honour; manly reputation
+(n, n-pref)
+(ichi1, news1, nf01)
+```
+
+So the order of the translation is determined by the order in the dictionary. I suspect Chiitrans is not intelligent enough to figure out which definition is most suitable depending on context. It just shows the definition in the order it found them. 
+Perhaps the people who made these XML files structured the order according to frequency, which might give you the impression that Chiitrans is rather good at finding the right definition from the start.
+It's also worth mentioning that in my case, it displayed 8 definitions but when doing the grep search, we get:
+
+```
+> grep -Phc '>男<' *.xml
+5
+7
+```
+So there must be some kind of way it decides to what definition it will display and what not. At least for the named entities. For the regular dictionary definitions, it seems to take all of them.
+
 # Chiitrans Lite
 Chiitrans Lite is an automatic translation tool for Japanese visual novels. It extracts, parses and translates text into English on the fly.
 
