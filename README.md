@@ -1,4 +1,10 @@
-﻿# Chiitrans Lite
+﻿# Purpose of Fork
+I forked this repo because I use Chiitrans myself and since the code was available, I wanted to learn more about it and play with it. The main goals of this for are:
+* Remove depreciated features (e.g. text hooking, people use [Textractor](https://github.com/Artikash/Textractor) these days...) 
+* Understand parsing algorithm
+* Understand code structure in general 
+
+# Chiitrans Lite
 Chiitrans Lite is an automatic translation tool for Japanese visual novels. It extracts, parses and translates text into English on the fly.
 
 Chiitrans Lite is the successor of the project [Chiitrans](http://code.google.com/p/chiitrans/).
