@@ -1,5 +1,10 @@
 (function() {
-  var $content, $current, $currentEntry, $font, $history, $trans, MAX_LOG, createNewEntry, currentEntryId, currentWord, flash, getCurrentWord, getSelectedEntryId, getTextSelection, http, lastEntryId, lastParseResult, log, makePopupSlider, moveToHistory, newParseResult, newTranslationResult, onNewEntry, registerTranslators, renderMultiTranslationResult, renderOldTranslationResult, renderParseResult, renderSimpleTranslationResult, roundTo1_100, separateSpeaker, separateWords, setFontSize, setSeparateSpeaker, setSeparateWords, setTransparencyLevel, setTransparentMode, translate, translators, updateMultiTranslationResult, updateReading, updateTranslationResult;
+    var $content, $current, $currentEntry, $font, $history, $trans, MAX_LOG, createNewEntry, currentEntryId, currentWord
+    var flash, getCurrentWord, getSelectedEntryId, getTextSelection, http, lastEntryId, lastParseResult, log, makePopupSlider
+    var moveToHistory, newParseResult, newTranslationResult, onNewEntry, renderMultiTranslationResult
+    var renderOldTranslationResult, renderParseResult, renderSimpleTranslationResult, roundTo1_100, separateSpeaker, separateWords
+    var setFontSize, setSeparateSpeaker, setSeparateWords, setTransparencyLevel, setTransparentMode, translate, translators
+    var updateMultiTranslationResult, updateReading, updateTranslationResult;
 
   MAX_LOG = 30;
 
@@ -201,24 +206,24 @@
 
   $currentEntry = null;
 
-  newTranslationResult = window.newTranslationResult = function(id, translationResult) {
-    return updateTranslationResult(id, renderOldTranslationResult(translationResult));
-  };
+  //newTranslationResult = window.newTranslationResult = function(id, translationResult) {
+  //  return updateTranslationResult(id, renderOldTranslationResult(translationResult));
+  //};
 
-  updateTranslationResult = function(id, translationResultHtml) {
-    var entry;
-    if (id < lastEntryId) {
-      entry = $history.find(".entry[data-id=\"" + id + "\"]");
-    } else {
-      if (id > lastEntryId) {
-        onNewEntry(id);
-      }
-      entry = $currentEntry;
-    }
-    if (entry.length) {
-      $('#translation', entry).html(translationResultHtml);
-    }
-  };
+  //updateTranslationResult = function(id, translationResultHtml) {
+  //  var entry;
+  //  if (id < lastEntryId) {
+  //    entry = $history.find(".entry[data-id=\"" + id + "\"]");
+  //  } else {
+  //    if (id > lastEntryId) {
+  //      onNewEntry(id);
+  //    }
+  //    entry = $currentEntry;
+  //  }
+  //  if (entry.length) {
+  //    $('#translation', entry).html(translationResultHtml);
+  //  }
+  //};
 
   newParseResult = window.newParseResult = function(id, parseResult) {
     var entry;
@@ -418,44 +423,44 @@
     return res;
   };
 
-  renderOldTranslationResult = function(tr) {
-    var $res;
-    tr = JSON.parse(tr);
-    $res = $('<span>');
-    if (!tr.isAtlas) {
-      $res.addClass('no_atlas');
-    } else {
-      $res.addClass('atlas');
-    }
-    $res.html(_.escape(tr.text).replace(/\n/g, '<br>'));
-    return $res;
-  };
+  //renderOldTranslationResult = function(tr) {
+  //  var $res;
+  //  tr = JSON.parse(tr);
+  //  $res = $('<span>');
+  //  if (!tr.isAtlas) {
+  //    $res.addClass('no_atlas');
+  //  } else {
+  //    $res.addClass('atlas');
+  //  }
+  //  $res.html(_.escape(tr.text).replace(/\n/g, '<br>'));
+  //  return $res;
+  //};
 
-  renderSimpleTranslationResult = function(text) {
-    var $res;
-    $res = $('<span>');
-    $res.html(_.escape(text).replace(/\n/g, '<br>'));
-    return $res;
-  };
+  //renderSimpleTranslationResult = function(text) {
+  //  var $res;
+  //  $res = $('<span>');
+  //  $res.html(_.escape(text).replace(/\n/g, '<br>'));
+  //  return $res;
+  //};
 
-  renderMultiTranslationResult = function(translators) {
-    var $res, t, text, _i, _len;
-    $res = $('<table class="multiTranslation">');
-    for (_i = 0, _len = translators.length; _i < _len; _i++) {
-      t = translators[_i];
-      if (t === "ATLAS with TAHelper replacements") {
-        text = "ATLAS2";
-      } else {
-        text = t;
-      }
-      $res.append("<tr>\n    <td class=\"translator\">" + text + "</td>\n    <td class=\"result\" data-trans=\"" + t + "\"></td>\n</tr>");
-    }
-    return $res;
-  };
+  //renderMultiTranslationResult = function(translators) {
+  //  var $res, t, text, _i, _len;
+  //  $res = $('<table class="multiTranslation">');
+  //  for (_i = 0, _len = translators.length; _i < _len; _i++) {
+  //    t = translators[_i];
+  //    if (t === "ATLAS with TAHelper replacements") {
+  //      text = "ATLAS2";
+  //    } else {
+  //      text = t;
+  //    }
+  //    $res.append("<tr>\n    <td class=\"translator\">" + text + "</td>\n    <td class=\"result\" data-trans=\"" + t + "\"></td>\n</tr>");
+  //  }
+  //  return $res;
+  //};
 
-  updateMultiTranslationResult = function(el, trans, text) {
-    return $(".result[data-trans=\"" + trans + "\"]", el).html(_.escape(text).replace(/\n/g, '<br>'));
-  };
+  //updateMultiTranslationResult = function(el, trans, text) {
+  //  return $(".result[data-trans=\"" + trans + "\"]", el).html(_.escape(text).replace(/\n/g, '<br>'));
+  //};
 
   log = function(s) {
     $('<div>').text(s).appendTo($('#log'));
@@ -522,41 +527,41 @@
 
   translators = {};
 
-  registerTranslators = window.registerTranslators = function(trans) {
-    translators = trans;
-    return host().registerTranslators(_.keys(trans));
-  };
+  //registerTranslators = window.registerTranslators = function(trans) {
+  //  translators = trans;
+  //  return host().registerTranslators(_.keys(trans));
+  //};
 
-  translate = window.translate = function(id, raw, src, translatorsListJson) {
-    var container, ex, t, translatorsList, _fn, _i, _j, _len, _len1;
-    translatorsList = JSON.parse(translatorsListJson);
-    ex = {
-      id: id,
-      rawText: raw
-    };
-    if (translatorsList.length <= 1) {
-      for (_i = 0, _len = translatorsList.length; _i < _len; _i++) {
-        t = translatorsList[_i];
-        translators[t](src, function(res) {
-          return updateTranslationResult(id, renderSimpleTranslationResult(res));
-        }, ex);
-      }
-    } else {
-      container = renderMultiTranslationResult(translatorsList);
-      updateTranslationResult(id, container);
-      _fn = (function(_this) {
-        return function(t) {
-          return translators[t](src, function(res) {
-            return updateMultiTranslationResult(container, t, res);
-          }, ex);
-        };
-      })(this);
-      for (_j = 0, _len1 = translatorsList.length; _j < _len1; _j++) {
-        t = translatorsList[_j];
-        _fn(t);
-      }
-    }
-  };
+  //translate = window.translate = function(id, raw, src, translatorsListJson) {
+  //  var container, ex, t, translatorsList, _fn, _i, _j, _len, _len1;
+  //  translatorsList = JSON.parse(translatorsListJson);
+  //  ex = {
+  //    id: id,
+  //    rawText: raw
+  //  };
+  //  if (translatorsList.length <= 1) {
+  //    for (_i = 0, _len = translatorsList.length; _i < _len; _i++) {
+  //      t = translatorsList[_i];
+  //      translators[t](src, function(res) {
+  //        return updateTranslationResult(id, renderSimpleTranslationResult(res));
+  //      }, ex);
+  //    }
+  //  } else {
+  //    container = renderMultiTranslationResult(translatorsList);
+  //    updateTranslationResult(id, container);
+  //    _fn = (function(_this) {
+  //      return function(t) {
+  //        return translators[t](src, function(res) {
+  //          return updateMultiTranslationResult(container, t, res);
+  //        }, ex);
+  //      };
+  //    })(this);
+  //    for (_j = 0, _len1 = translatorsList.length; _j < _len1; _j++) {
+  //      t = translatorsList[_j];
+  //      _fn(t);
+  //    }
+  //  }
+  //};
 
   http = window.http = {
     request: function(options, cb) {
