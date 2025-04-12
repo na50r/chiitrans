@@ -88,6 +88,10 @@ It's also worth mentioning that in my case, it displayed 8 definitions but when 
 ```
 So there must be some kind of way it decides to what definition it will display and what not. At least for the named entities. For the regular dictionary definitions, it seems to take all of them.
 
+## Icon
+I used Patchouli as the icon rather than Reimu; personal preference. 
+Unfortunately, I could not find the artist, so I link [here](https://mx.pinterest.com/pin/622059767284572654/) the Pintrest source.
+
 # Chiitrans Lite
 Chiitrans Lite is an automatic translation tool for Japanese visual novels. It extracts, parses and translates text into English on the fly.
 
