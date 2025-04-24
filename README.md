@@ -1,15 +1,15 @@
 ﻿# Purpose of Fork
-I forked this repo because I use Chiitrans myself and since the code was available, I wanted to learn more about it and play with it. The main goals of this for are:
+I forked this repo because I use Chiitrans myself and since the code was available, I wanted to learn more about it and play with it. The main goals for this are:
 * Remove depreciated features (e.g. text hooking, people use [Textractor](https://github.com/Artikash/Textractor) these days...) 
 * Understand parsing algorithm
 * Understand code structure in general 
 
 ## Parsing Analysis
-Based on how it works and rough analysis, i.e., not a close look at source code, we can assume parsing does the following:
+Based on how it works and rough analysis, we can assume parsing does the following:
 1. Accept text from clipboard as input
 2. Segment the text somehow / Find Morphemes
 3. Get the Lemma of the Morpehemes
-4. Perform a dictionary lookup of the Lemma on `JMdict.xml` and `JMnedict.xml`
+4. Perform a dictionary lookup of the Lemma using `JMdict.xml` and `JMnedict.xml`
 
 Step 4 we can confirm by looking at the output Chiirans gives. For example `男` by itself has 8 translation pop ups.
 If we do:
